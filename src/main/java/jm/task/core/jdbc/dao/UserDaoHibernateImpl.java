@@ -53,10 +53,9 @@ public class UserDaoHibernateImpl implements UserDao {
             User user = new User(name, lastName, age);
             session.save(user);
             transaction.commit();
-            System.out.println("User с именем – " + name + " добавлен в базу данных");
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
-            e.printStackTrace();
+            throw e;
         }
     }
 
@@ -72,10 +71,8 @@ public class UserDaoHibernateImpl implements UserDao {
             }
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-                e.printStackTrace();
-            }
+            if (transaction != null) transaction.rollback();
+            throw e;
         }
 
     }
