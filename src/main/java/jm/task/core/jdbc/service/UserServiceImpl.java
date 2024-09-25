@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserService {
             userDaoHibernate.saveUser(name, lastName, age);
             System.out.println("User с именем – " + name + " добавлен в базу данных");
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -29,7 +28,6 @@ public class UserServiceImpl implements UserService {
             userDaoHibernate.removeUserById(id);
             System.out.println("User с ID — " + id + " удален из базы данных");
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
